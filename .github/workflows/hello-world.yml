@@ -5,6 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello World"
-    list-repo:
       - run: find ${{ github.workspace }}/
   
