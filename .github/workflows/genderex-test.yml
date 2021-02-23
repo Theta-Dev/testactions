@@ -25,5 +25,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: logs
-          path: .GenderEx/output/log # or path/to/artifact
+          path: .GenderEx/output/log/
 
