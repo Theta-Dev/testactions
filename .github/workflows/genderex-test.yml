@@ -22,4 +22,5 @@ jobs:
         run: spotify-gender-ex --noia
       
       - name: List files
-        run: find /GenderEx/
+        run: find ./GenderEx/
+      
