@@ -21,7 +21,5 @@ jobs:
       - name: Run GenderEx
         run: spotify-gender-ex --noia
       
-      - uses: actions/upload-artifact@v2
-        with:
-          name: test-artifact
-          path: /
+      - name: List files
+        run: find /GenderEx/
