@@ -26,4 +26,11 @@ jobs:
         with:
           name: logs
           path: ./GenderEx/output/log/
-
+      
+      - name: Upload to Dropbox
+        uses: deka0106/upload-to-dropbox@v2
+        with:
+          dropbox_access_token: ${{ secrets.DROPBOX_ACCESS_TOKEN }}
+          src: ./GenderEx/output/*
+          dest: /
+          multiple: true
