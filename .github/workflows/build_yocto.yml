@@ -4,9 +4,16 @@ jobs:
   build_yocto:
     runs-on: ubuntu-latest
     steps:
-      - run: sudo apt install chrpath diffstat gawk -y
-      - run: git clone -b hardknott git://git.yoctoproject.org/poky.git
+      - name: Install required packages
+        run: sudo apt install chrpath diffstat gawk -y
+      - name: Clone Poky
+        run: git clone -b hardknott git://git.yoctoproject.org/poky.git
       - run: cd poky
       - run: source oe-init-build-env
       - run: sed -i 's/#MACHINE ?= "beaglebone-yocto"/MACHINE ?= "beaglebone-yocto"/' ./conf/local.conf
-      - run: bitbake core-image-base
+      - name: Build
+        run: bitbake core-image-base
+      - name: Upload output files
+        uses: actions/upload-artifact@v2.2.3
+        with:
+          path: ./tmp/deploy/*
