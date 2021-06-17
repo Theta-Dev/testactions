@@ -1,0 +1,16 @@
+name: Get replacements from issue
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  parse_issue:
+    if: contains(github.event.issue.title, 'Neue Ersetzungsregeln') && contains(github.event.comment.body, '[BEGIN VALUES]')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+
