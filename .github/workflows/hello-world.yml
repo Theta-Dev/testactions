@@ -4,6 +4,10 @@ jobs:
   greet:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello World"
-      - run: find ${{ github.workspace }}/
-  
+      - uses: actions/checkout@v2
+      - run: |
+          pwd
+          ls
+          cd
+          pwd
+          ls
