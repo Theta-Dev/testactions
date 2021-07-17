@@ -12,5 +12,5 @@ jobs:
         with:
           args: put . /Spotify-GenderEx/
         env:
-          USERNAME: ${{MEGA_USER}}
-          PASSWORD: ${{MEGA_PASS}}
+          USERNAME: ${{ secrets.MEGA_USER }}
+          PASSWORD: ${{ secrets.MEGA_PASS }}
