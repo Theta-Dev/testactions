@@ -1,0 +1,41 @@
+name: Telegram
+on: workflow_dispatch
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send notification
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: Hello World! This is a notification from GitHub
+      
+      - run: |
+          wget https://raw.githubusercontent.com/mxstbr/markdown-test-file/master/TEST.md
+          wget https://raw.githubusercontent.com/Theta-Dev/vue-htmlpage/master/test_page.html
+          wget http://histo.io/ -O histo.html
+      
+      - name: Send markdown
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          format: markdown
+          message_file: TEST.md
+      
+      - name: Send simple HTML
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          format: html
+          message_file: histo.html
+      
+      - name: Send HTML+JS
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          format: html
+          message_file: test_page.html
