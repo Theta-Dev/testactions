@@ -8,7 +8,7 @@ jobs:
         run: wget https://speed.hetzner.de/100MB.bin
       
       - name: Upload testfile
-        uses: Difegue/action-megacmd@v1
+        uses: Difegue/action-megacmd@master
         with:
           args: put . /Spotify-GenderEx/
         env:
