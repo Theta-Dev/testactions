@@ -1,0 +1,16 @@
+name: MEGA
+on: workflow_dispatch
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get testfile
+        run: wget https://speed.hetzner.de/100MB.bin
+      
+      - name: Upload testfile
+        uses: Difegue/action-megacmd@v1
+        with:
+          args: put . /Spotify-GenderEx/
+        env:
+          USERNAME: ${{MEGA_USER}}
+          PASSWORD: ${{MEGA_PASS}}
