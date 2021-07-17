@@ -10,7 +10,7 @@ jobs:
       - name: Upload testfile
         uses: Difegue/action-megacmd@master
         with:
-          args: put . /Spotify-GenderEx/
+          args: put 100MB.bin /Spotify-GenderEx/
         env:
           USERNAME: ${{ secrets.MEGA_USER }}
           PASSWORD: ${{ secrets.MEGA_PASS }}
