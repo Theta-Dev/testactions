@@ -1,0 +1,12 @@
+name: rustypipe
+on: workflow_dispatch
+jobs:
+  rustypipe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: "https://code.thetadev.de/ThetaDev/rustypipe.git"
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Test
+        run: cargo test --features=rss --workspace
