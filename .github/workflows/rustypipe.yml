@@ -4,9 +4,10 @@ jobs:
   rustypipe:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          repository: "https://code.thetadev.de/ThetaDev/rustypipe.git"
+      - name: Checkout
+        run: |
+          git clone https://code.thetadev.de/ThetaDev/rustypipe.git
+          cd rustypipe
       - uses: dtolnay/rust-toolchain@stable
       - name: Test
         run: cargo test --features=rss --workspace
