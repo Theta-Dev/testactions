@@ -18,4 +18,6 @@ jobs:
       - name: Comment PR
         if: ${{ always() && github.event_name == 'pull_request' }}
         run: |
+          echo "Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_NUMBER"
+          echo "Pull: ${{ github.event.number }}"
           curl -SsL --fail-with-body -w "\n" -X POST https://av.thetadev.de/.well-known/api/prComment -H "Content-Type: application/json" --data "{\"url\": \"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_NUMBER\", \"pr\": ${{ github.event.number }}}"
