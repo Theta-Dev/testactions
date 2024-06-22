@@ -6,6 +6,8 @@ jobs:
   Test:
     runs-on: ubuntu-latest
     steps:
+      - name: Print environment
+        run: printenv
       - name: Test
         run: |
           echo "Hello World, this is me ;-)" > HELLO.txt          
@@ -18,4 +20,6 @@ jobs:
       - name: Comment PR
         if: ${{ always() && github.event_name == 'pull_request' }}
         run: |
-          curl -SsL --fail-with-body -w "\n" -X POST https://av.thetadev.de/.well-known/api/prComment -H "Content-Type: application/json" --data "{\"url\": \"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_NUMBER\", \"pr\": ${{ github.event.number }}}"
+          echo "Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          echo "Pull: ${{ github.event.number }}"
+          curl -SsL --fail-with-body -w "\n" -X POST https://av.thetadev.de/.well-known/api/prComment -H "Content-Type: application/json" --data "{\"url\": \"$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID\", \"pr\": ${{ github.event.number }}}"
