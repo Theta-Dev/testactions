@@ -6,6 +6,8 @@ jobs:
   Test:
     runs-on: ubuntu-latest
     steps:
+      - name: Print environment
+        run: printenv
       - name: Test
         run: |
           echo "Hello World, this is me ;-)" > HELLO.txt          
