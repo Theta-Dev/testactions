@@ -3,7 +3,7 @@
 Hello GH Actions!
 I use this repository as a playground for testing GitHub actions.
 
-This is PR v2
+This is PR v3
 
 ![](https://raw.githubusercontent.com/actions/runner/main/docs/res/github-graph.png)
 
