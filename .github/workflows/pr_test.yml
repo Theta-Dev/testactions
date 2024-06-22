@@ -14,11 +14,6 @@ jobs:
         with:
           name: Hello
           path: HELLO.txt
-      
-      - name: Fail
-        run: |
-          echo "${{ github.event_name }}"
-          exit 1
 
       - name: Comment PR
         if: ${{ always() && github.event_name == "pull_request" }}
